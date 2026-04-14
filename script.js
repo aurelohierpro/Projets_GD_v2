@@ -1,7 +1,7 @@
-##const { Deck, GeoJsonLayer, ScatterplotLayer, _GlobeView } = deck;
+const { Deck, GeoJsonLayer, ScatterplotLayer, _GlobeView } = deck;
 
-#const DATA_URL = "./countries2.geojson";
-#const PROJECTS_URL = "./projects_site.json";
+const DATA_URL = "./countries2.geojson";
+const PROJECTS_URL = "./projects_site.json";
 
 let mode = "projects";
 let hoveredName = null;
