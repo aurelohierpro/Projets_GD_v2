@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Development</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://unpkg.com/deck.gl@latest/dist.min.js"></script>
+</head>
+<body>
+  <div id="stars-container"></div>
+  <div id="globe-halo"></div>
+
+  <div id="container">
+    <canvas id="halo-canvas" style="position:absolute;top:0;left:0;pointer-events:none;z-index:1;"></canvas>
+
+    <div id="ui-top-left" class="panel">
+      <div class="header-block">
+        <div class="title-main">GLOBAL DEVELOPMENT</div>
+        <div class="title-sub">Répartition géographique des projets</div>
+      </div>
+      <div id="ui-stats">
+        <div class="stat">
+          <div class="stat-value" id="stat-projects">–</div>
+          <div class="stat-label">Projets</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-countries">–</div>
+          <div class="stat-label">Pays couverts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-amount">–</div>
+          <div class="stat-label">Montant cumulé</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ui-top-right" class="panel">
+      <div class="controls-title">Indicateur affiché</div>
+      <div class="segmented">
+        <button id="btnProjects" class="seg-btn active">Nombre de projets</button>
+        <button id="btnAmount" class="seg-btn">Montant cumulé</button>
+      </div>
+
+      <div class="controls-title funding-title">Filtrer par</div>
+      <select id="filterTypeSelect">
+        <option value="none">— Aucun filtre —</option>
+        <option value="funder">Bailleur</option>
+        <option value="responsible">Responsable</option>
+        <option value="filiale">Filiale</option>
+        <option value="sector">Secteur</option>
+        <option value="expert">Expert</option>
+        <option value="amount">Montant</option>
+      </select>
+
+      <div id="filterValueWrapper" style="margin-top:10px; display:none;"></div>
+    </div>
+
+    <div id="ui-legend" class="panel">
+      <div class="legend-title" id="legendTitle">Nombre de projets</div>
+      <div id="legendItems"></div>
+    </div>
+
+    <div id="ui-export" class="panel">
+      <div class="controls-title">Export carte</div>
+      <button id="btnExport" class="seg-btn active" style="width:100%; margin-top:4px;">
+        Exporter en PNG
+      </button>
+      <div id="exportStatus" style="font-size:11px; opacity:0.7; margin-top:8px; display:none;"></div>
+    </div>
+
+    <div id="tooltip"></div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
